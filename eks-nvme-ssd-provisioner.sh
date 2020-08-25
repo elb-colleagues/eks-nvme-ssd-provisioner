@@ -46,7 +46,7 @@ case $SSD_NVME_DEVICE_COUNT in
   ;;
 esac
 
-#UUID=$(blkid -s UUID -o value $DEVICE)
+UUID=$(blkid -s UUID -o value $DEVICE)
 mkdir -p /pv-disk
 mount -o defaults,noatime,discard,nobarrier --uuid $UUID /pv-disk
 echo "Device $DEVICE has been mounted to /pv-disk"
