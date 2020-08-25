@@ -17,15 +17,15 @@ spec:
       priorityClassName: system-node-critical
       containers:
       - name: eks-nvme-ssd-provisioner
-        image: eu.gcr.io/brunsgaard-public/eks-nvme-ssd-provisioner:v1.0.0
+        image: victzh/eks-nvme-ssd-provisioner:v1.0.0
         imagePullPolicy: Always
         securityContext:
           privileged: true
         volumeMounts:
-          - mountPath: /pv-disks
-            name: pv-disks
+          - mountPath: /pv-disk
+            name: pv-disk
             mountPropagation: "Bidirectional"
       volumes:
-      - name: pv-disks
+      - name: pv-disk
         hostPath:
-          path: /pv-disks
+          path: /pv-disk
